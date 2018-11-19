@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<div class="container">
+  <h1>Games#new</h1>
+  <p>Find me in app/views/games/new.html.erb</p>
+
+  <div class="containerletter">
+    <% @letters.each do |letter| %>
+    <div class="letter"><%= letter %></div>
+    <%end%>
+  </div>
+
+  <div class="containerword">
+  <p>What is the longest word you can find?</p>
+  <form action="/score" method="post">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters_array, @letters %>
+    <input type="text" name="word" placeholder="Word" class="form-group">
+    <input class="btn btn-primary" type="submit" value="Validate!">
+  </form>
+  </div>
+</div>
